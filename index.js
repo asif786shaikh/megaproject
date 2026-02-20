@@ -122,7 +122,7 @@ app.use("/listing/:id/reviews",reviewRouter);
 app.use("/",userRouter);
 
 app.get("/", (req, res) => {
-    res.send("App is working 🚀");
+    res.redirect("/listing");
 });
 
 
