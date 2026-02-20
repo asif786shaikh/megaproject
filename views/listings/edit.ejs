@@ -1,0 +1,58 @@
+<%- layout('/layout/boilerplate.ejs') %>
+<div class="row">
+    <div class="col-8 offset-2 mt-3">
+    <br><br>
+    <h2>Edit your listing</h2>
+    <form  action="/listing/<%= data._id %>?_method=PUT" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title"  >Title:</label>
+            <input type="text" required name="listing[title]" id="title" value="<%= data.title %>" class="form-control">
+        </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea name="listing[description]" required class="form-control" id="description" placeholder="description"><%= data.description %></textarea>
+        </div>
+
+        <div class="mb-3 row col-md-4">
+            Original listing image <br>
+            <img src="<%= originalImageUrl %>">
+        
+        </div>
+
+
+
+
+        <div class="mb-3">
+            <label for="iamge" class="form-label">Upload new image</label>
+            <input type="file" name="listing[image]"  class="form-control"  id="image">
+        
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price:</label>
+                <input type="number" required class="form-control" name="listing[price]" value="<%= data.price %>" id="price">
+                <div class="invalid-feedback">Price is required</div>
+            </div>
+
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country:</label>
+                <input type="text" required class="form-control" name="listing[country]" value="<%= data.country %>" id="country">
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="location" class="form-label">Location:</label>
+            <input type="text" class="form-control" required name="listing[location]" value="<%= data.location %>" id="location">
+        </div>
+        <br><br>
+
+        <button class="btn btn-dark edit-btn mt-3">submit</button>
+        <br><br>
+        
+
+    </form>
+    </div>
+</div>
+    
+
