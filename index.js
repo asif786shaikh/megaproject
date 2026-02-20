@@ -27,7 +27,7 @@ const User = require("./models/user.js");
 
 
 const app = express();
-const port=3000;
+const port = process.env.PORT || 3000;
 const path =require("path");
 
 
@@ -83,6 +83,11 @@ const sessionOptions ={
     },
 
 };
+
+app.use((req, res, next) => {
+    res.locals.currUser = req.user;
+    next();
+});
 
 
 
